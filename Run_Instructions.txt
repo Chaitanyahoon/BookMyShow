@@ -1,0 +1,51 @@
+HOW TO RUN IN ECLIPSE (BookMyShow Backend)
+==============================================
+
+PREREQUISITES:
+1. Java 21 (or higher) installed.
+2. MySQL Database running on Port 3306.
+   (Username: root, Password: root)
+
+----------------------------------------------
+STEP 1: IMPORT THE PROJECT
+----------------------------------------------
+1. Open Eclipse IDE.
+2. Go to 'File' -> 'Import...'.
+3. Type "Maven" in the search box.
+4. Select 'Existing Maven Projects' and click 'Next'.
+5. Click 'Browse' and select the folder:
+   Users/patil/Downloads/Spring_Rest_Data_Jpa_Project/Spring_Rest_Data_Jpa_Project
+   (Select the inner folder that contains pom.xml)
+6. Click 'Finish'.
+7. Wait for Eclipse to download dependencies (bottom right progress bar).
+
+----------------------------------------------
+STEP 2: UPDATE CONFIG (If needed)
+----------------------------------------------
+The project is configured to run on Port 9808.
+Database: user='root', password='root'.
+
+If you need to change this, open:
+src/main/resources/application.properties
+
+----------------------------------------------
+STEP 3: RUN THE APPLICATION
+----------------------------------------------
+1. In the 'Package Explorer' (left side), navigate to:
+   src/main/java
+    -> example.spring.rest.data.jpa
+      -> SpringRestDataJpaProjectApplication.java
+
+2. Right-Click on 'SpringRestDataJpaProjectApplication.java'.
+3. Select 'Run As' -> 'Java Application'.
+
+4. Watch the Console tab at the bottom.
+   You should see: "Tomcat started on port 9808".
+
+----------------------------------------------
+STEP 4: TEST IT
+----------------------------------------------
+Open your web browser and go to:
+http://localhost:9808/movies
+
+If you see a JSON response (like []), it is working!

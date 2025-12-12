@@ -14,24 +14,21 @@ public class EmployeeService {
 	private EmployeeRepository empRepo;
 	@Autowired
 	private DepartmentRepository deptRepo;
+
 	public void createEmployee(Employee emp) {
 		empRepo.save(emp);
 	}
-	
+
 	public void linkEmpToDept(Integer empNo, Integer deptNo) {
-		Employee emp = 
-				empRepo.findById(empNo).orElse(null);
-		Department dept = 
-				deptRepo.findById(deptNo).orElse(null);
-		if(emp!=null && dept!=null) {
+		Employee emp = empRepo.findById(empNo).orElse(null);
+		Department dept = deptRepo.findById(deptNo).orElse(null);
+		if (emp != null && dept != null) {
 			dept.getEmployees().add(emp);
 			deptRepo.save(dept);
 		}
 	}
+
+	public void deleteEmployee(Integer empNo) {
+		empRepo.deleteById(empNo);
+	}
 }
-
-
-
-
-
-

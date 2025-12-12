@@ -12,28 +12,21 @@ import example.spring.rest.data.jpa.repo.DepartmentRepository;
 public class DepartmentService {
 	@Autowired
 	private DepartmentRepository deptRepo;
-	
+
 	public void createDepartment(Department dept) {
 		deptRepo.save(dept);
 	}
-	
-	public List<Department> getAllDepartments(){
+
+	public List<Department> getAllDepartments() {
 		return deptRepo.findAll();
 	}
-	
+
 	public Department getOneDepartment(Integer deptNo) {
-		Department dept =
-				deptRepo.findById(deptNo).orElse(null);
+		Department dept = deptRepo.findById(deptNo).orElse(null);
 		return dept;
 	}
+
+	public void deleteDepartment(Integer deptNo) {
+		deptRepo.deleteById(deptNo);
+	}
 }
-
-
-
-
-
-
-
-
-
-

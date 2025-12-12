@@ -106,5 +106,8 @@ The project implements specific JPA mappings:
    - Example: Student has many Courses, and Course has many Students.
    - Annotation: @ManyToMany
 
-In this project, 'Movie' is an independent entity with no relations.
+4. INDEPENDENT ENTITIES (No Relationship)
+   - Entity: "Movie"
+   - Context: In this specific project code, 'Movie' is built as a standalone entity. It has no Foreign Keys connecting it to Employees or Departments.
+   - Real World Context: In a full app, a Movie might have a One-to-Many relationship with 'Showtimes' or a Many-to-Many with 'Actors', but for this demo, it is kept simple to demonstrate basic CRUD without dependencies.
 

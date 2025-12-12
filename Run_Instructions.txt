@@ -85,3 +85,26 @@ Base URL: http://localhost:9808
      (Replace 1 with MovieID)
    - Action: Click Send.
 
+----------------------------------------------
+Note on Entity Relationships
+----------------------------------------------
+The project implements specific JPA mappings:
+
+1. ONE-TO-MANY (1:N)
+   - Relationship: Department has many Employees.
+   - Implementation: 
+     - Department.java uses @OneToMany(mappedBy="...")
+     - This means one Department record (e.g., 'Sales') can be linked to multiple Employee records.
+
+2. ONE-TO-ONE (1:1)
+   - Not strictly implemented in this demo, but typically would be:
+     - Employee has one ParkingSpot (for example).
+     - Annotation: @OneToOne
+
+3. MANY-TO-MANY (N:N)
+   - Not strictly implemented in this demo.
+   - Example: Student has many Courses, and Course has many Students.
+   - Annotation: @ManyToMany
+
+In this project, 'Movie' is an independent entity with no relations.
+

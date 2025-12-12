@@ -49,3 +49,39 @@ Open your web browser and go to:
 http://localhost:9808/movies
 
 If you see a JSON response (like []), it is working!
+
+----------------------------------------------
+STEP 5: HOW TO USE API TESTER (Talend / Postman)
+----------------------------------------------
+Base URL: http://localhost:9808
+
+1. GET (Read Data)
+   - Method: GET
+   - URL: http://localhost:9808/movies
+   - Action: Click Send.
+   - Result: Shows list of movies.
+
+2. POST (Create Data)
+   - Method: POST
+   - URL: http://localhost:9808/movies
+   - Body:
+     {
+       "title": "Avengers",
+       "genre": "Action",
+       "year": 2012
+     }
+   - Action: Click Send.
+
+3. PUT (Update/Link Data)
+   - Method: PUT
+   - URL: http://localhost:9808/employees/1/2
+     (Replace 1 with EmpID and 2 with DeptID)
+   - Body: (Empty)
+   - Action: Click Send.
+
+4. DELETE (Remove Data)
+   - Method: DELETE
+   - URL: http://localhost:9808/movies/1
+     (Replace 1 with MovieID)
+   - Action: Click Send.
+

@@ -86,28 +86,20 @@ Base URL: http://localhost:9808
    - Action: Click Send.
 
 ----------------------------------------------
-Note on Entity Relationships
+4. INDEPENDENT ENTITIES
+   - None. (Movie is now connected to Actors).
+
 ----------------------------------------------
-The project implements specific JPA mappings:
+STEP 6: NEW API ENDPOINTS (Relationships)
+----------------------------------------------
+1. PARKING SPACES (One-to-One with Employee)
+   - POST /spaces : Create { "flatNumber": "101", "location": "Basement" }
+   - GET /spaces : List all
+   - (Note: To link to an Employee, update the Employee entity with the ParkingSpace ID)
 
-1. ONE-TO-MANY (1:N)
-   - Relationship: Department has many Employees.
-   - Implementation: 
-     - Department.java uses @OneToMany(mappedBy="...")
-     - This means one Department record (e.g., 'Sales') can be linked to multiple Employee records.
+2. ACTORS (Many-to-Many with Movies)
+   - POST /actors : Create { "actorName": "RDJ", "city": "NYC" }
+   - GET /actors : List all
+   - PUT /actors/{actorId}/{movieId} : Link an Actor to a Movie.
 
-2. ONE-TO-ONE (1:1)
-   - Not strictly implemented in this demo, but typically would be:
-     - Employee has one ParkingSpot (for example).
-     - Annotation: @OneToOne
-
-3. MANY-TO-MANY (N:N)
-   - Not strictly implemented in this demo.
-   - Example: Student has many Courses, and Course has many Students.
-   - Annotation: @ManyToMany
-
-4. INDEPENDENT ENTITIES (No Relationship)
-   - Entity: "Movie"
-   - Context: In this specific project code, 'Movie' is built as a standalone entity. It has no Foreign Keys connecting it to Employees or Departments.
-   - Real World Context: In a full app, a Movie might have a One-to-Many relationship with 'Showtimes' or a Many-to-Many with 'Actors', but for this demo, it is kept simple to demonstrate basic CRUD without dependencies.
 
